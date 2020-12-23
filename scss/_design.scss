@@ -91,3 +91,29 @@
     width: 100%;
 }
 
+
+
+@media (max-width: 780px){
+    .container {
+        width: 80vw;
+    }
+
+
+    
+}
+
+@media (max-width: 400px) {
+    body {
+        background-color: #ffffff;
+    }
+
+    .container {
+        width: 30rem;
+        border: none !important;
+        box-shadow: none !important;
+    }  
+
+}
+
+
+
