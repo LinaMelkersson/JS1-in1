@@ -40,8 +40,9 @@ form.addEventListener('submit', (e) => {
         removeinput(firstname);
         removeinput(lastname);
         removeinput(email);
+
         let newuser = {
-            id: Date.now().toString(),
+            id: uuidv4(),
             firstname: firstname.value,
             lastname: lastname.value,
             email: email.value
