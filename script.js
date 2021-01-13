@@ -6,7 +6,9 @@ let firstname = document.getElementById('firstname');
 let lastname = document.getElementById('lastname');
 let email = document.getElementById('email');
 let check = false;
-let list = document.querySelector('#list')
+let list = document.querySelector('#list');
+let change = false;
+let userId; 
 
 
 
@@ -34,12 +36,33 @@ listelement();
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    if(change === true) {
+        users = changeInput(userId)
+        change = false;
+        listelement();
+
+        removeinput(firstname);
+        removeinput(lastname);
+        removeinput(email);
+
+        firstname.value = '';
+        lastname.value = '';
+        email.value = '';
+
+        return
+    }
+
     checkInputs();
 
     if (check == true) {
         removeinput(firstname);
         removeinput(lastname);
         removeinput(email);
+
+        if(users.some(user => user.email === email.value)){
+            setErrorFor(email, `Email already exist`);
+            return false
+        }
 
         let newuser = {
             id: uuidv4(),
@@ -116,16 +139,38 @@ list.addEventListener('click', (e) => {
         users = users.filter(newuser => newuser.id !== e.target.parentNode.parentNode.id)
         listelement();
     }
+    else if(e.target.classList.contains('change')) {
 
-})
+        change = true
+        userId = e.target.parentNode.parentNode.id;
 
-list.addEventListener('click', (e) => {
+        let user = users.find(user => user.id == e.target.parentNode.parentNode.id)
+        let firstname = user.firstname;
+        let lastname = user.lastname;
+        let email = user.email;
 
-    if(e.target.classList.contains('change')){
-        users = users.filter(newuser => newuser.id !== e.target.parentNode.parentNode.id)
-        listelement();
+        document.querySelector('#firstname').value=firstname;
+        document.querySelector('#lastname').value=lastname;
+        document.querySelector('#email').value=email;
+
     }
+
 })
+
+function changeInput(id){
+    return users.map(user => {
+        if(user.id === id)
+        return {
+            id: user.id,
+            firstname: firstname.value,
+            lastname: lastname.value,
+            email: email.value
+        }
+        return user;
+    })
+}
+
+
 
 
 
