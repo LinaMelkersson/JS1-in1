@@ -10,7 +10,6 @@
     overflow-y: auto;
 }
 
-
 .rubrik h2 {
     margin: auto;
     text-align: center;
@@ -124,7 +123,6 @@ button {
     width: 6.5rem;
 }
 
-
 .changeandremove {
     display: grid;
     grid-template-rows: 1fr;
@@ -139,11 +137,6 @@ button {
     padding: 1rem;
     border-bottom: 2px solid #e0aad3;
 }
-
-
-
-
-
 
 @media (max-width: 780px){
     body {

@@ -1,6 +1,5 @@
 let users = []
 
-
 let form = document.getElementById('form');
 let firstname = document.getElementById('firstname');
 let lastname = document.getElementById('lastname');
@@ -9,7 +8,8 @@ let check = false;
 let list = document.querySelector('#list');
 let change = false;
 let userId; 
-
+let subbtn = document.getElementById('subbtn');
+let rubriken = document.getElementById('rubriken');
 
 
 const listelement = () => { 
@@ -38,6 +38,9 @@ form.addEventListener('submit', (e) => {
 
     if(change === true) {
         users = changeInput(userId)
+        subbtn.innerText='Submit';
+        rubriken.innerText='Create Account';
+
         change = false;
         listelement();
 
@@ -140,6 +143,8 @@ list.addEventListener('click', (e) => {
         listelement();
     }
     else if(e.target.classList.contains('change')) {
+        subbtn.innerText='Submit Change';
+        rubriken.innerText='Change Information';
 
         change = true
         userId = e.target.parentNode.parentNode.id;
@@ -169,8 +174,3 @@ function changeInput(id){
         return user;
     })
 }
-
-
-
-
-
