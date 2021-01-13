@@ -1,10 +1,4 @@
-let users = [ {
-    id: '1',
-    firstname: 'a',
-    lastname: 'b',
-    email: 'eee'
-}
-]
+let users = []
 
 
 let form = document.getElementById('form');
@@ -14,7 +8,6 @@ let email = document.getElementById('email');
 let check = false;
 let list = document.querySelector('#list')
 
-console.log(list)
 
 
 const listelement = () => { 
@@ -22,7 +15,7 @@ const listelement = () => {
 
     users.forEach(user => {
         list.innerHTML += `
-            <div class="userbox">
+            <div id="${user.id}" class="userbox">
                 <div class="userinput">
                     <h4> ${user.firstname} ${user.lastname}</h4>
                     <h6>${user.email}</h6>
@@ -43,12 +36,10 @@ form.addEventListener('submit', (e) => {
 
     checkInputs();
 
-    if (check === true) {
-        check = false;
-        listelement();
-    }
-    checkInputs();
     if (check == true) {
+        removeinput(firstname);
+        removeinput(lastname);
+        removeinput(email);
         let newuser = {
             id: Date.now().toString(),
             firstname: firstname.value,
@@ -57,10 +48,17 @@ form.addEventListener('submit', (e) => {
         }
         users.push(newuser);
         listelement();
-        console.log(list)
+
+        firstname.value = '';
+        lastname.value = '';
+        email.value = '';
     }
- 
 });
+
+function removeinput(input) {
+    let formControl = input.parentElement;
+    formControl.className = 'form-control';
+}
 
 
 function checkInputs() {
@@ -112,33 +110,20 @@ function isEmail(email) {
 }
 
 list.addEventListener('click', (e) => {
-    // users = users.filter(newuser => newuser.id !== e.target.parentNode.parentNode.parentNode.id)
-    //     listelement();
-    // users = users.filter(newuser => newuser.id)
-    users=users.filter(x => x.firstname)
-    console.log(users)
- 
-    // listelement();
 
+    if(e.target.classList.contains('remove')){
+        users = users.filter(newuser => newuser.id !== e.target.parentNode.parentNode.id)
+        listelement();
+    }
 
-    // let row = remove(parentNode.parentNode);
-    // row.parentNode.removechild(row);
-    // console.log(e.target)
+})
 
-    // if(e.target.classlist.contains('remove')){
-    //     let row = remove.parentNode.parentNode;
-    //     row.parentNode.removechild(row);
-    //     console.log(e.target)
-    // }
+list.addEventListener('click', (e) => {
 
-   
-
-    // if(e.target.classlist.contains('remove')){
-    //     console.log(e.target)
-    //     users = users.filter(newuser => newuser.id !== e.target.parentNode.parentNode.id)
-    //     listelement();
-    // }
-
+    if(e.target.classList.contains('change')){
+        users = users.filter(newuser => newuser.id !== e.target.parentNode.parentNode.id)
+        listelement();
+    }
 })
 
 
