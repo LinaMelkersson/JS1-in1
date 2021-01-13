@@ -1,11 +1,15 @@
 .container {
+    margin-top: 30%;
     width: 30rem;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 5px black;
     padding: 3rem;
     max-width: 100%;
+    height: 33vw;
+    overflow-y: auto;
 }
+
 
 .rubrik h2 {
     margin: auto;
@@ -20,7 +24,6 @@
     position: relative;
     height: auto;
     width: 100%;
-    
 }
 
 .form-control label {
@@ -91,29 +94,81 @@
     width: 100%;
 }
 
+.uid {
+    color: rgb(141, 141, 141);
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #e0aad3;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14pt;
+    display: block;
+    height: 3rem;
+    width: 6.5rem;
+}
+
+.remove {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: red;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14pt;
+    display: block;
+    height: 3rem;
+    width: 6.5rem;
+}
+
+
+.changeandremove {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.usersinput {
+    margin-top: 3rem;
+}
+
+.userbox {
+    padding: 1rem;
+    border-bottom: 2px solid #e0aad3;
+}
+
+
+
+
 
 
 @media (max-width: 780px){
-    .container {
-        width: 80vw;
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
     }
 
-
-    
+    .container {
+        width: 67vw;
+        margin: 15%;
+        height: auto;
+    }
 }
 
 @media (max-width: 400px) {
-    body {
-        background-color: #ffffff;
-    }
-
     .container {
-        width: 30rem;
-        border: none !important;
-        box-shadow: none !important;
-    }  
-
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border-bottom: 2px solid #e0aad3;
+        height: auto;
+    }
 }
+
 
 
 

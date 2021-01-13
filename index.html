@@ -16,6 +16,7 @@
         <div class="rubrik">
             <h2>Create Account</h2>
         </div>
+
         <form class="form" id="form">
             <div class="form-control">
                 <label>Förnamn:</label>
@@ -24,6 +25,7 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
+
             <div class="form-control">
                 <label>Efternamn:</label>
                 <input type="text" placeholder="Svensson" id="lastname">
@@ -31,6 +33,7 @@
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
+            
             <div class="form-control">
                 <label>Epost:</label>
                 <input type="text" placeholder="anna.svensson@gmail.com" id="email">
@@ -40,8 +43,15 @@
             </div>
 
             <button>Submit</button>
-            
         </form>
+    </div>
+
+    <div class="container userlist">
+        <div class="rubrik">
+            <h2>Users</h2>
+        </div>
+
+        <div id="list"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
